@@ -76,6 +76,7 @@ local themes = {
 local chosen_theme = themes[7]
 local modkey       = "Mod4"
 local altkey       = "Mod1"
+local ctrlKey      = "Control"
 local terminal     = os.getenv("TERMINAL") or "xterm"
 local editor       = os.getenv("EDITOR") or "nano"
 local gui_editor   = "gvim"
@@ -344,8 +345,8 @@ globalkeys = my_table.join(
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
               {description = "open a terminal", group = "launcher"}),
-    awful.key({ modkey, "Control" }, "r", awesome.restart,
-              {description = "reload awesome", group = "awesome"}),
+    -- awful.key({ modkey, "Control" }, "r", awesome.restart,
+    --           {description = "reload awesome", group = "awesome"}),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit,
               {description = "quit awesome", group = "awesome"}),
 
@@ -492,10 +493,10 @@ globalkeys = my_table.join(
         {description = "show dmenu", group = "launcher"})
     --]]
     -- Prompt
-    awful.key({ modkey }, "r", function () awful.screen.focused().mypromptbox:run() end,
+    awful.key({ ctrlKey }, "r", function () awful.screen.focused().mypromptbox:run() end,
               {description = "run prompt", group = "launcher"}),
 
-    awful.key({ modkey }, "space", function () awful.screen.focused().mypromptbox:run() end,
+    awful.key({ ctrlKey }, "space", function () awful.screen.focused().mypromptbox:run() end,
             {description = "run prompt", group = "launcher"}),
 
 
